@@ -1,4 +1,4 @@
-/* script.js — Portfolio interactive behaviours */
+/* script.js — Portfolio interactive behaviors */
 
 /* ── Navbar scroll effect ──────────────────────────────── */
 const navbar = document.getElementById('navbar');
@@ -74,9 +74,14 @@ if (skillFills.length > 0) {
 
   /* Basis atoms: Si (0,0) and C (1/3, 2/3) in fractional coords */
   const basis = [
-    { fx: 0,       fy: 0,       r: 5.5, color: '#38bdf8', label: 'Si' },
-    { fx: 1 / 3,   fy: 2 / 3,  r: 4.0, color: '#34d399', label: 'C'  },
+    { fx: 0,       fy: 0,       r: 5.5, rgba: [56, 189, 248], label: 'Si' },
+    { fx: 1 / 3,   fy: 2 / 3,  r: 4.0, rgba: [52, 211, 153], label: 'C'  },
   ];
+
+  /* Helper: build an rgba() string from an [r,g,b] array and alpha */
+  function atomColor([r, g, b], alpha) {
+    return `rgba(${r},${g},${b},${alpha})`;
+  }
 
   /* Bonds: pairs of basis indices and PBC copies */
   const bondVectors = [
@@ -121,8 +126,8 @@ if (skillFills.length > 0) {
         const oy = cy + (n * a1[1] + m * a2[1]) * SCALE;
 
         basis.forEach((atomA, idxA) => {
-          const ax = ox + (atomA.fx * a1[0] + atomA.fx * a2[0]) * SCALE;
-          const ay = oy + (atomA.fx * a1[1] + atomA.fx * a2[1]) * SCALE;
+          const ax = ox + (atomA.fx * a1[0] + atomA.fy * a2[0]) * SCALE;
+          const ay = oy + (atomA.fx * a1[1] + atomA.fy * a2[1]) * SCALE;
 
           /* connect Si to nearest C in neighbouring cells */
           if (idxA === 0) {
@@ -164,7 +169,7 @@ if (skillFills.length > 0) {
 
           /* Glow halo */
           const grad = ctx.createRadialGradient(ax, ay, 0, ax, ay, pulse * 3.5);
-          grad.addColorStop(0, atom.color.replace(')', `, ${glow * 2})`).replace('rgb', 'rgba').replace('#38bdf8', `rgba(56,189,248,${glow * 2.5})`).replace('#34d399', `rgba(52,211,153,${glow * 2.5})`));
+          grad.addColorStop(0, atomColor(atom.rgba, glow * 2.5));
           grad.addColorStop(1, 'transparent');
           ctx.fillStyle = grad;
           ctx.beginPath();
@@ -173,9 +178,7 @@ if (skillFills.length > 0) {
 
           /* Atom core */
           const coreAlpha = 0.55 + 0.2 * Math.sin(time * 0.025 + n * 0.5 + m * 0.3);
-          ctx.fillStyle = atom.color === '#38bdf8'
-            ? `rgba(56,189,248,${coreAlpha})`
-            : `rgba(52,211,153,${coreAlpha})`;
+          ctx.fillStyle = atomColor(atom.rgba, coreAlpha);
           ctx.beginPath();
           ctx.arc(ax, ay, pulse, 0, Math.PI * 2);
           ctx.fill();
