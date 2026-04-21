@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Engineering Physics & Materials Science</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">BG<span class="accent">.</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <p class="hero-greeting">Hello, I'm</p>
+      <h1 class="hero-name">Engineering Physics<br /><span class="accent">Undergraduate</span></h1>
+      <p class="hero-tagline">
+        Materials Science &nbsp;·&nbsp; Semiconductor TCAD &nbsp;·&nbsp; Physics-Informed ML
+      </p>
+      <p class="hero-sub">
+        Tecnológico de Monterrey &nbsp;|&nbsp; Scientific Computing &amp; Materials Informatics
+      </p>
+      <div class="hero-cta">
+        <a href="#research" class="btn btn-primary">View Research</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="lattice-container">
+        <canvas id="latticeCanvas"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" id="about">
+    <div class="container">
+      <h2 class="section-title">About <span class="accent">Me</span></h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            I am an <strong>Engineering Physics undergraduate</strong> at
+            <strong>Tecnológico de Monterrey</strong>, specializing in
+            <em>scientific computing</em> and <em>materials informatics</em>.
+          </p>
+          <p>
+            My current research focuses on the structural, electronic, and
+            optical properties of <strong>siligraphene monolayers</strong>
+            through first-principles calculations using
+            <strong>Density Functional Theory</strong> with
+            <strong>Quantum ESPRESSO</strong>.
+          </p>
+          <p>
+            I am actively building expertise at the intersection of
+            <strong>ab-initio methods</strong> and
+            <strong>physics-informed machine learning</strong>, with a
+            particular emphasis on <strong>PINNs</strong> (Physics-Informed
+            Neural Networks) and data-driven surrogate models for semiconductor
+            device simulation and functional materials discovery.
+          </p>
+          <div class="about-highlights">
+            <div class="highlight-item">
+              <span class="highlight-icon">⚛</span>
+              <div>
+                <strong>DFT / First-Principles</strong>
+                <p>Quantum ESPRESSO · VASP</p>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <span class="highlight-icon">🔬</span>
+              <div>
+                <strong>2D Materials</strong>
+                <p>Siligraphene · MXenes · TMDs</p>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <span class="highlight-icon">🧠</span>
+              <div>
+                <strong>Physics-Informed ML</strong>
+                <p>PINNs · Neural Operators</p>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <span class="highlight-icon">💡</span>
+              <div>
+                <strong>Semiconductor TCAD</strong>
+                <p>Device simulation · Process modeling</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-inner">
+            <div class="about-card-header">
+              <div class="terminal-dots">
+                <span></span><span></span><span></span>
+              </div>
+              <span class="terminal-title">profile.json</span>
+            </div>
+            <pre class="about-code"><code>{
+  <span class="json-key">"degree"</span>: <span class="json-str">"Engineering Physics"</span>,
+  <span class="json-key">"university"</span>: <span class="json-str">"Tec de Monterrey"</span>,
+  <span class="json-key">"focus"</span>: [
+    <span class="json-str">"Scientific Computing"</span>,
+    <span class="json-str">"Materials Informatics"</span>,
+    <span class="json-str">"Semiconductor TCAD"</span>
+  ],
+  <span class="json-key">"current_research"</span>: {
+    <span class="json-key">"topic"</span>: <span class="json-str">"Siligraphene monolayers"</span>,
+    <span class="json-key">"method"</span>: <span class="json-str">"DFT (Quantum ESPRESSO)"</span>
+  },
+  <span class="json-key">"interests"</span>: [
+    <span class="json-str">"PINNs"</span>,
+    <span class="json-str">"Ab-initio methods"</span>,
+    <span class="json-str">"Functional materials"</span>
+  ]
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Section -->
+  <section class="section section-alt" id="research">
+    <div class="container">
+      <h2 class="section-title">Research <span class="accent">Focus</span></h2>
+      <p class="section-subtitle">
+        Bridging first-principles simulations and data-driven methods for next-generation materials
+      </p>
+      <div class="research-grid">
+
+        <div class="research-card">
+          <div class="research-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="24" cy="24" r="4" fill="currentColor"/>
+              <circle cx="24" cy="10" r="3" fill="currentColor" opacity="0.7"/>
+              <circle cx="24" cy="38" r="3" fill="currentColor" opacity="0.7"/>
+              <circle cx="10" cy="17" r="3" fill="currentColor" opacity="0.7"/>
+              <circle cx="38" cy="17" r="3" fill="currentColor" opacity="0.7"/>
+              <circle cx="10" cy="31" r="3" fill="currentColor" opacity="0.7"/>
+              <circle cx="38" cy="31" r="3" fill="currentColor" opacity="0.7"/>
+              <line x1="24" y1="24" x2="24" y2="13" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+              <line x1="24" y1="24" x2="24" y2="35" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+              <line x1="24" y1="24" x2="13" y2="19" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+              <line x1="24" y1="24" x2="35" y2="19" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+              <line x1="24" y1="24" x2="13" y2="29" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+              <line x1="24" y1="24" x2="35" y2="29" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+            </svg>
+          </div>
+          <h3>Siligraphene Monolayers (DFT)</h3>
+          <p>
+            First-principles analysis of Si–C two-dimensional allotropes using
+            Density Functional Theory. Investigating electronic band structure,
+            density of states, and optical response with Quantum ESPRESSO.
+          </p>
+          <ul class="research-tags">
+            <li>Quantum ESPRESSO</li>
+            <li>DFT</li>
+            <li>2D Materials</li>
+            <li>Band Structure</li>
+          </ul>
+        </div>
+
+        <div class="research-card">
+          <div class="research-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="6" y="32" width="36" height="8" rx="2" fill="currentColor" opacity="0.2" stroke="currentColor" stroke-width="1.5"/>
+              <rect x="14" y="20" width="20" height="12" rx="1" fill="currentColor" opacity="0.3" stroke="currentColor" stroke-width="1.5"/>
+              <rect x="18" y="10" width="12" height="10" rx="1" fill="currentColor" opacity="0.5" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="6" y1="40" x2="42" y2="40" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M8 32 Q16 20 24 20 Q32 20 40 32" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.6"/>
+            </svg>
+          </div>
+          <h3>Semiconductor TCAD</h3>
+          <p>
+            Technology Computer-Aided Design for semiconductor devices.
+            Multiphysics process and device simulation combining drift-diffusion,
+            carrier transport, and quantum corrections for advanced node modeling.
+          </p>
+          <ul class="research-tags">
+            <li>TCAD</li>
+            <li>Drift-Diffusion</li>
+            <li>Device Simulation</li>
+            <li>FinFET / MOSFET</li>
+          </ul>
+        </div>
+
+        <div class="research-card">
+          <div class="research-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="12" cy="24" r="4" stroke="currentColor" stroke-width="1.5" fill="none"/>
+              <circle cx="36" cy="12" r="4" stroke="currentColor" stroke-width="1.5" fill="none"/>
+              <circle cx="36" cy="36" r="4" stroke="currentColor" stroke-width="1.5" fill="none"/>
+              <line x1="16" y1="24" x2="32" y2="14" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
+              <line x1="16" y1="24" x2="32" y2="34" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
+              <path d="M8 40 Q16 28 24 24 Q32 20 40 8" stroke="currentColor" stroke-width="2" fill="none" stroke-dasharray="3 2" opacity="0.5"/>
+            </svg>
+          </div>
+          <h3>Physics-Informed Neural Networks</h3>
+          <p>
+            Developing PINNs and neural operator architectures that embed
+            governing PDEs (Schrödinger, Poisson, drift-diffusion) directly
+            into the loss functional, enabling mesh-free surrogate models for
+            materials and device physics.
+          </p>
+          <ul class="research-tags">
+            <li>PINNs</li>
+            <li>Neural Operators</li>
+            <li>PDEs</li>
+            <li>PyTorch</li>
+          </ul>
+        </div>
+
+        <div class="research-card">
+          <div class="research-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M8 40 L40 8" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+              <path d="M8 8 L8 40 L40 40" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="14" cy="34" r="2.5" fill="currentColor" opacity="0.7"/>
+              <circle cx="20" cy="28" r="2.5" fill="currentColor" opacity="0.7"/>
+              <circle cx="26" cy="22" r="2.5" fill="currentColor" opacity="0.7"/>
+              <circle cx="32" cy="18" r="2.5" fill="currentColor" opacity="0.7"/>
+              <circle cx="38" cy="14" r="2.5" fill="currentColor" opacity="0.7"/>
+              <path d="M14 34 Q26 28 38 14" stroke="currentColor" stroke-width="2" fill="none"/>
+            </svg>
+          </div>
+          <h3>Materials Informatics</h3>
+          <p>
+            Data-driven discovery and characterization of functional materials
+            using ML interatomic potentials, graph neural networks on crystal
+            structures, and high-throughput screening pipelines integrated with
+            DFT databases.
+          </p>
+          <ul class="research-tags">
+            <li>Graph Neural Nets</li>
+            <li>MLIP</li>
+            <li>High-Throughput DFT</li>
+            <li>Materials Project</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="section" id="skills">
+    <div class="container">
+      <h2 class="section-title">Technical <span class="accent">Skills</span></h2>
+      <div class="skills-grid">
+
+        <div class="skills-category">
+          <h3>Simulation &amp; Modeling</h3>
+          <div class="skill-list">
+            <div class="skill-item"><span class="skill-name">Quantum ESPRESSO</span><div class="skill-bar"><div class="skill-fill" style="--pct:85%"></div></div></div>
+            <div class="skill-item"><span class="skill-name">VASP</span><div class="skill-bar"><div class="skill-fill" style="--pct:60%"></div></div></div>
+            <div class="skill-item"><span class="skill-name">TCAD (Sentaurus)</span><div class="skill-bar"><div class="skill-fill" style="--pct:70%"></div></div></div>
+            <div class="skill-item"><span class="skill-name">COMSOL Multiphysics</span><div class="skill-bar"><div class="skill-fill" style="--pct:65%"></div></div></div>
+          </div>
+        </div>
+
+        <div class="skills-category">
+          <h3>Machine Learning</h3>
+          <div class="skill-list">
+            <div class="skill-item"><span class="skill-name">PyTorch</span><div class="skill-bar"><div class="skill-fill" style="--pct:80%"></div></div></div>
+            <div class="skill-item"><span class="skill-name">PINNs / Neural Operators</span><div class="skill-bar"><div class="skill-fill" style="--pct:75%"></div></div></div>
+            <div class="skill-item"><span class="skill-name">scikit-learn</span><div class="skill-bar"><div class="skill-fill" style="--pct:80%"></div></div></div>
+            <div class="skill-item"><span class="skill-name">JAX</span><div class="skill-bar"><div class="skill-fill" style="--pct:50%"></div></div></div>
+          </div>
+        </div>
+
+        <div class="skills-category">
+          <h3>Programming</h3>
+          <div class="skill-list">
+            <div class="skill-item"><span class="skill-name">Python</span><div class="skill-bar"><div class="skill-fill" style="--pct:90%"></div></div></div>
+            <div class="skill-item"><span class="skill-name">MATLAB / Octave</span><div class="skill-bar"><div class="skill-fill" style="--pct:75%"></div></div></div>
+            <div class="skill-item"><span class="skill-name">Fortran</span><div class="skill-bar"><div class="skill-fill" style="--pct:55%"></div></div></div>
+            <div class="skill-item"><span class="skill-name">C / C++</span><div class="skill-bar"><div class="skill-fill" style="--pct:60%"></div></div></div>
+          </div>
+        </div>
+
+        <div class="skills-category">
+          <h3>Scientific Stack</h3>
+          <div class="skill-list">
+            <div class="skill-item"><span class="skill-name">NumPy / SciPy</span><div class="skill-bar"><div class="skill-fill" style="--pct:90%"></div></div></div>
+            <div class="skill-item"><span class="skill-name">ASE / pymatgen</span><div class="skill-bar"><div class="skill-fill" style="--pct:75%"></div></div></div>
+            <div class="skill-item"><span class="skill-name">Matplotlib / Plotly</span><div class="skill-bar"><div class="skill-fill" style="--pct:85%"></div></div></div>
+            <div class="skill-item"><span class="skill-name">HPC / SLURM</span><div class="skill-bar"><div class="skill-fill" style="--pct:70%"></div></div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="section section-alt" id="projects">
+    <div class="container">
+      <h2 class="section-title">Featured <span class="accent">Projects</span></h2>
+      <p class="section-subtitle">Computational research projects and open-source contributions</p>
+      <div class="projects-grid">
+
+        <article class="project-card">
+          <div class="project-header">
+            <span class="project-badge">DFT</span>
+            <div class="project-links">
+              <a href="https://github.com/BladedGoose13" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3>Siligraphene Electronic Structure</h3>
+          <p>
+            DFT study of SiC-based 2D monolayers exploring band gap tunability,
+            effective mass anisotropy, and phonon stability. Pseudopotential
+            generation and convergence tests with Quantum ESPRESSO pw.x / ph.x.
+          </p>
+          <div class="project-tech">
+            <span>Quantum ESPRESSO</span>
+            <span>Python</span>
+            <span>ASE</span>
+            <span>pymatgen</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-header">
+            <span class="project-badge">PINN</span>
+            <div class="project-links">
+              <a href="https://github.com/BladedGoose13" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3>PINN for Poisson–Schrödinger System</h3>
+          <p>
+            Physics-Informed Neural Network solving the coupled
+            Poisson–Schrödinger equations in a 1D quantum-well heterostructure.
+            Self-consistent loop embedded in the PINN loss with automatic
+            differentiation via PyTorch.
+          </p>
+          <div class="project-tech">
+            <span>PyTorch</span>
+            <span>Python</span>
+            <span>NumPy</span>
+            <span>Matplotlib</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-header">
+            <span class="project-badge">TCAD</span>
+            <div class="project-links">
+              <a href="https://github.com/BladedGoose13" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3>ML-Assisted Semiconductor TCAD</h3>
+          <p>
+            Surrogate model trained on TCAD simulation data to predict I–V
+            characteristics and threshold voltage shifts. Reduces full TCAD
+            simulation time while preserving physical accuracy for process
+            variation analysis.
+          </p>
+          <div class="project-tech">
+            <span>scikit-learn</span>
+            <span>PyTorch</span>
+            <span>Sentaurus</span>
+            <span>Python</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-header">
+            <span class="project-badge">Informatics</span>
+            <div class="project-links">
+              <a href="https://github.com/BladedGoose13" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3>High-Throughput 2D Materials Screening</h3>
+          <p>
+            Automated DFT workflow using pymatgen + FireWorks to screen 2D
+            materials from the C2DB database. Filters for dynamical stability,
+            non-trivial topology, and bandgap range suitable for photovoltaic
+            applications.
+          </p>
+          <div class="project-tech">
+            <span>pymatgen</span>
+            <span>FireWorks</span>
+            <span>DFT</span>
+            <span>Python</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section" id="contact">
+    <div class="container contact-container">
+      <h2 class="section-title">Get in <span class="accent">Touch</span></h2>
+      <p class="section-subtitle">
+        Interested in collaborating on materials simulation, PINN development,
+        or semiconductor modeling? Let's connect.
+      </p>
+      <div class="contact-grid">
+        <a href="https://github.com/BladedGoose13" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          <span>GitHub</span>
+          <small>BladedGoose13</small>
+        </a>
+        <a href="mailto:portfolio@example.com" class="contact-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <polyline points="2,4 12,13 22,4"/>
+          </svg>
+          <span>Email</span>
+          <small>Send a message</small>
+        </a>
+        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          <span>LinkedIn</span>
+          <small>Connect with me</small>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>
+        Built with curiosity &amp; first-principles thinking &nbsp;·&nbsp;
+        <a href="https://github.com/BladedGoose13/Portfolio" target="_blank" rel="noopener noreferrer">Source</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
